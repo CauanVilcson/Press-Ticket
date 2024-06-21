@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "flex-end",
     padding: "0 8px",
-    minHeight: "48px",
+    height: "48px",
     backgroundColor: theme.palette.toolbarIcon.main
   },
   appBar: {

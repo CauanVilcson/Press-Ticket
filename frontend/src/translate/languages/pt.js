@@ -408,7 +408,7 @@ const messages = {
         appBar: {
           message: {
             hi: "Olá",
-            text: "seja bem vindo ao Sistema"
+            text: "seja bem vindo ao Sistema de"
           },
           user: {
             profile: "Perfil",

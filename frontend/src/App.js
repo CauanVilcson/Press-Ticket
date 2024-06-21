@@ -31,7 +31,7 @@ const App = () => {
       },
       palette: {
         primary: { main: system.color.lightTheme.palette.primary || "#6B62FE" },
-        secondary: { main: system.color.lightTheme.palette.secondary || "#F50057" },
+        secondary: { main: system.color.lightTheme.palette.secondary || "#C20000" },
         toolbar: { main: system.color.lightTheme.toolbar.background || "#6B62FE" },
         menuItens: { main: system.color.lightTheme.menuItens || "#ffffff" },
         sub: { main: system.color.lightTheme.sub || "#ffffff" },

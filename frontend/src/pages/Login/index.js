@@ -11,7 +11,8 @@ import {
   Container,
   InputAdornment,
   IconButton,
-  Link
+  Link,
+  Paper
 } from '@material-ui/core';
 
 import { Visibility, VisibilityOff } from '@material-ui/icons';
@@ -22,32 +23,34 @@ import { AuthContext } from "../../context/Auth/AuthContext";
 import { system } from "../../config.json";
 import logo from '../../assets/logo.png';
 
-const Copyright = () => {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      © {new Date().getFullYear()}
-      {" - "}
-      <Link color="inherit" href={system.url || "https://github.com/rtenorioh/Press-Ticket"}>
-        {system.name}
-      </Link>
-      {"."}
-    </Typography>
-  );
-};
-
 const useStyles = makeStyles((theme) => ({
+  container: {
+    display: 'flex',
+    minHeight: '100vh',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column',
+  },
   paper: {
-    marginTop: theme.spacing(8),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: theme.spacing(4),
+    boxShadow: '2px 0 35px 0px rgba(0, 0, 0, 0.35)',
+    textAlign: 'center',
+    borderRadius: '1rem',
+    backgroundColor: '#fff',
   },
   form: {
-    width: "100%", // Fix IE 11 issue.
+    width: '100%',
     marginTop: theme.spacing(1),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+  },
+  logo: {
+    width: '80%',
+    marginBottom: theme.spacing(4),
   },
 }));
 
@@ -69,13 +72,10 @@ const Login = () => {
   };
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" className={classes.container}>
       <CssBaseline />
-      <div className={classes.paper}>
-        <img alt="logo" src={logo}></img>
-        <Typography component="h1" variant="h5">
-          {i18n.t("login.title")}
-        </Typography>
+      <Paper className={classes.paper}>
+        <img alt="logo" src={logo} className={classes.logo} />
         <form className={classes.form} noValidate onSubmit={handlSubmit}>
           <TextField
             variant="outlined"
@@ -124,7 +124,7 @@ const Login = () => {
           >
             {i18n.t("login.buttons.submit")}
           </Button>
-          <Grid container>
+          <Grid container justify="flex-end">
             <Grid item>
               <Link
                 href="#"
@@ -137,8 +137,17 @@ const Login = () => {
             </Grid>
           </Grid>
         </form>
-      </div>
-      <Box mt={8}><Copyright /></Box>
+      </Paper>
+      <Box mt={8}>
+        <Typography variant="body2" color="textSecondary" align="center">
+          © {new Date().getFullYear()}
+          {" - "}
+          <Link color="inherit">
+            {system.name}
+          </Link>
+          {"."}
+        </Typography>
+      </Box>
     </Container>
   );
 };
